@@ -1,0 +1,90 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="to-do.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="editUserAndPass.html">Editar Usuário/Senha</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" onclick="excluirUsuario()" href="#">Excluir Usuário</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="excluirUser" href="index.html">Sair</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid mt-5">
+        <h1 class="text-center mb-5">To-Do-List</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="align-self-start">Adicionar Tarefa</h3>
+                <form onsubmit="enviaDadoToDo(event)" autocomplete="off">
+                    <div class="form-group row align-items-center">
+                        <div class="col-md-8">
+                            <input type="text" id="newTaskName" placeholder="Nome da Tarefa" class="form-control">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="newTaskDescription">Descrição da Tarefa</label>
+                        <textarea id="newTaskDescription" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Criar Tarefa</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h3>Tarefas </h3>
+                <div class="form-group row align-items-center">
+                    <div class="col-md-8">
+                        <input type="text" id="searchTask" placeholder="Procurar Tarefa"
+                            class="form-control same-height">
+                    </div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary mb-2" onclick="searchDado()">Procurar</button>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ID Tarefa</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Descrição</th>
+                                <th scope="col">Realizada S/N</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Ações</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
